@@ -66,13 +66,9 @@ course = {
     }
 }
 
-required=[1,1,2,3,6,6,7,8,9,8,8,8,7,6,6,5,5,4,4,3,2,2,2,2]
+x = {}
 
-t=24
-
-x={}
-staffNumber={}
-m=Model("course_schedule")
+m = Model("course_schedule")
 
 for d in course:
     x[d] = m.addVar(vtype=GRB.BINARY, name="x_%s" % d)
@@ -98,10 +94,3 @@ if m.status == GRB.Status.OPTIMAL:
     for d in course:
                 if solution[d] == 1:
                     print("The selected course is %s" % d)
-
-
-
-
-
-
-
